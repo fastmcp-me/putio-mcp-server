@@ -18,21 +18,22 @@ def list_transfers() -> list[dict[str, Any]]:
 
 @mcp.tool()
 def add_transfer(url: str):
-    """Add a transfer."""
+    """Add a transfer.
+    URL can be a HTTP link or a magnet link."""
     return client.Transfer.add_url(url)
 
 
 @mcp.tool()
-def cancel_transfer(id: int):
+def cancel_transfer(transfer_id: int):
     """Cancel a transfer.
     If transfer is in SEEDING state, stops seeding.
     Else, removes transfer entry. Does not remove their files."""
-    transfer = client.Transfer.get(id)
+    transfer = client.Transfer.get(transfer_id)
     return transfer.cancel()
 
 
 @mcp.tool()
-def get_browser_link(transfer_id: str):
+def get_browser_link(transfer_id: int):
     """Get a link that can be opened in a browser."""
     transfer = client.Transfer.get(transfer_id)
     file_id = transfer.file_id  # type: ignore
