@@ -42,5 +42,9 @@ def get_browser_link(transfer_id: str):
     return f"https://app.put.io/files/{file_id}"
 
 
-if __name__ == "__main__":
+def main():
     mcp.run()
+
+
+if __name__ == "__main__":
+    main()
