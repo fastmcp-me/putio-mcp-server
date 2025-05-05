@@ -1,5 +1,5 @@
 # putio-mcp-server
-MCP server for interacting put.io
+MCP server for interacting with put.io
 
 ## Features
 
